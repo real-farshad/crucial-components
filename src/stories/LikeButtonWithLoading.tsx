@@ -1,20 +1,20 @@
 import styled from "styled-components";
 
 interface LikeButtonWithLoadingProps {
-  liked?: boolean;
-  loading?: boolean;
+  isLiked?: boolean;
+  isLoading?: boolean;
   onClick: () => void;
 }
 
 export const LikeButtonWithLoading = (props: LikeButtonWithLoadingProps) => {
-  const { liked, loading, onClick } = props;
+  const { isLiked, isLoading, onClick } = props;
 
-  const buttonTitle = liked ? "Liked" : "Like";
-  const loadingMessage = liked ? "Removing Like..." : "Liking...";
+  const buttonTitle = isLiked ? "Liked" : "Like";
+  const loadingMessage = isLiked ? "Removing Like..." : "Liking...";
 
   return (
     <StyledLikeButtonWithLoading onClick={onClick}>
-      {loading ? loadingMessage : buttonTitle}
+      {isLoading ? loadingMessage : buttonTitle}
     </StyledLikeButtonWithLoading>
   );
 };

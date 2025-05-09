@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 interface SimpleLikeButtonProps {
-  liked?: boolean;
+  isLiked?: boolean;
   onClick: () => void;
 }
 
 export const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
-  const { liked, onClick } = props;
+  const { isLiked, onClick } = props;
 
   return (
     <StyledSimpleLikeButton onClick={onClick}>
-      {liked ? "Liked" : "Like"}
+      {isLiked ? "Liked" : "Like"}
     </StyledSimpleLikeButton>
   );
 };
