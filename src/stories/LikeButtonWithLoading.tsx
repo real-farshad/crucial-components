@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ThumbsUpIcon } from "./svg/ThumbsUpIcon";
 
 interface LikeButtonWithLoadingProps {
   isLiked?: boolean;
@@ -14,16 +15,27 @@ export const LikeButtonWithLoading = (props: LikeButtonWithLoadingProps) => {
 
   return (
     <StyledLikeButtonWithLoading onClick={onClick}>
-      {isLoading ? loadingMessage : buttonTitle}
+      <Icon>
+        <ThumbsUpIcon size={22} />
+      </Icon>
+
+      <span>{isLoading ? loadingMessage : buttonTitle}</span>
     </StyledLikeButtonWithLoading>
   );
 };
 
 const StyledLikeButtonWithLoading = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 20px;
-  background-color: #fff;
-  color: #000;
-  padding: 10px 40px;
-  border: 2px solid #000;
-  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+`;
+
+const Icon = styled.span`
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
 `;

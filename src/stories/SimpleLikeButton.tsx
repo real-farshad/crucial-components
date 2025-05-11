@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { HeartIcon } from "./svg/HeartIcon";
 
 interface SimpleLikeButtonProps {
   isLiked?: boolean;
@@ -10,16 +11,27 @@ export const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
 
   return (
     <StyledSimpleLikeButton onClick={onClick}>
-      {isLiked ? "Liked" : "Like"}
+      <Icon>
+        <HeartIcon size={22} />
+      </Icon>
+
+      <span>{isLiked ? "Liked" : "Like"} </span>
     </StyledSimpleLikeButton>
   );
 };
 
 const StyledSimpleLikeButton = styled.button`
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 20px;
-  background-color: #fff;
-  color: #000;
-  padding: 10px 40px;
-  border: 2px solid #000;
-  border-radius: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+`;
+
+const Icon = styled.span`
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
 `;
