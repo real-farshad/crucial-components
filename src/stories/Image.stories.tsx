@@ -1,6 +1,6 @@
 import { Meta } from "@storybook/react";
 import Image from "./Image";
-import backgroundImage from "../assets/background.png";
+import backgroundImage from "../assets/high-resolution-background-image.jpg";
 
 const meta = {
   title: "Image",
