@@ -3,29 +3,18 @@ import styled from "styled-components";
 interface ImageProps {
   src: string;
   alt: string;
-  objectFit?: "cover" | "contain" | "fill";
 }
 
-const Image: React.FC<ImageProps> = ({ src, alt, objectFit = "cover" }) => {
-  return (
-    <ImageContainer>
-      <StyledImage src={src} alt={alt} objectFit={objectFit} loading="lazy" />
-    </ImageContainer>
-  );
+const Image = (props: ImageProps) => {
+  const { src, alt } = props;
+
+  return <StyledImage src={src} alt={alt} loading="lazy" />;
 };
 
-const ImageContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-`;
-
 const StyledImage = styled.img<ImageProps>`
-  width: 100%;
-  height: 100%;
-  object-fit: ${({ objectFit }) => objectFit || "cover"};
   display: block;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 export default Image;
