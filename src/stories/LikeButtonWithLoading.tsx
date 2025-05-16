@@ -7,7 +7,7 @@ interface LikeButtonWithLoadingProps {
   onClick: () => void;
 }
 
-export const LikeButtonWithLoading = (props: LikeButtonWithLoadingProps) => {
+const LikeButtonWithLoading = (props: LikeButtonWithLoadingProps) => {
   const { isLiked, isLoading, onClick } = props;
 
   const buttonTitle = isLiked ? "Liked" : "Like";
@@ -39,3 +39,5 @@ const Icon = styled.span`
   align-items: center;
   margin-bottom: 4px;
 `;
+
+export default LikeButtonWithLoading;

@@ -6,7 +6,7 @@ interface SimpleLikeButtonProps {
   onClick: () => void;
 }
 
-export const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
+const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
   const { isLiked, onClick } = props;
 
   return (
@@ -35,3 +35,5 @@ const Icon = styled.span`
   align-items: center;
   margin-bottom: 3px;
 `;
+
+export default SimpleLikeButton;

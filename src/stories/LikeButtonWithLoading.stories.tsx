@@ -1,6 +1,6 @@
 import type { Meta, StoryFn } from "@storybook/react";
 import { useState } from "react";
-import { LikeButtonWithLoading } from "./LikeButtonWithLoading";
+import LikeButtonWithLoading from "./LikeButtonWithLoading";
 
 const meta = {
   title: "LikeButtonWithLoading",
@@ -36,32 +36,24 @@ const Template: StoryFn<typeof LikeButtonWithLoading> = (args) => {
   );
 };
 
-/**
- * Interactive story with loading simulation.
- * Click to experience the loading state and status transition.
- */
 export const Interactive = Template.bind({});
 Interactive.args = {
   isLiked: false,
   isLoading: false,
 };
 
-/** Static demonstration of the liked state */
 export const Liked = () => (
   <LikeButtonWithLoading isLiked={true} isLoading={false} onClick={() => {}} />
 );
 
-/** Static demonstration of the unliked state */
 export const Unliked = () => (
   <LikeButtonWithLoading isLiked={false} isLoading={false} onClick={() => {}} />
 );
 
-/** Static demonstration of loading state while liking */
 export const LoadingWhileLiking = () => (
   <LikeButtonWithLoading isLiked={false} isLoading={true} onClick={() => {}} />
 );
 
-/** Static demonstration of loading state while removing like */
 export const LoadingWhileRemoving = () => (
   <LikeButtonWithLoading isLiked={true} isLoading={true} onClick={() => {}} />
 );
