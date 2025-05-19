@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { ThumbsUpIcon } from "./svg/ThumbsUpIcon";
+import styled, { css, keyframes } from "styled-components";
+import { HeartIcon } from "./svg/HeartIcon";
 
 interface LikeButtonWithLoadingProps {
   isLiked?: boolean;
@@ -10,21 +10,18 @@ interface LikeButtonWithLoadingProps {
 const LikeButtonWithLoading = (props: LikeButtonWithLoadingProps) => {
   const { isLiked, isLoading, onClick } = props;
 
-  const buttonTitle = isLiked ? "Liked" : "Like";
-  const loadingMessage = isLiked ? "Removing Like..." : "Liking...";
-
   return (
-    <StyledLikeButtonWithLoading onClick={onClick}>
-      <Icon>
-        <ThumbsUpIcon size={22} />
-      </Icon>
+    <StyledLikeButtonWithLoading isLoading={isLoading} onClick={onClick}>
+      <span>Like</span>
 
-      <span>{isLoading ? loadingMessage : buttonTitle}</span>
+      <Icon>
+        <HeartIcon size={21} filled={isLiked ? true : false} />
+      </Icon>
     </StyledLikeButtonWithLoading>
   );
 };
 
-const StyledLikeButtonWithLoading = styled.button`
+const StyledLikeButtonWithLoading = styled.button<{ isLoading?: boolean }>`
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -32,12 +29,25 @@ const StyledLikeButtonWithLoading = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
+  opacity: 0.87;
+
+  ${({ isLoading }) =>
+    isLoading &&
+    css`
+      animation: ${blink} 1s infinite linear;
+    `}
 `;
 
 const Icon = styled.span`
   display: flex;
   align-items: center;
   margin-bottom: 4px;
+`;
+
+const blink = keyframes`
+  0% { opacity: 0.87; }
+  50% { opacity: 0.25; }
+  100% { opacity: 0.87; }
 `;
 
 export default LikeButtonWithLoading;

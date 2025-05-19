@@ -25,8 +25,8 @@ const Template: StoryFn<typeof SimpleLikeButton> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
-Default.args = {
+export const Interactive = Template.bind({});
+Interactive.args = {
   isLiked: false,
 };
 

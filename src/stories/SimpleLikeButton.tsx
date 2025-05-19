@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { HeartIcon } from "./svg/HeartIcon";
+import { ThumbsUpIcon } from "./svg/ThumbsUpIcon";
 
 interface SimpleLikeButtonProps {
   isLiked?: boolean;
@@ -11,11 +11,11 @@ const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
 
   return (
     <StyledSimpleLikeButton onClick={onClick}>
-      <Icon>
-        <HeartIcon size={22} />
-      </Icon>
+      <span>Like</span>
 
-      <span>{isLiked ? "Liked" : "Like"} </span>
+      <Icon>
+        <ThumbsUpIcon size={22} filled={isLiked ? true : false} />
+      </Icon>
     </StyledSimpleLikeButton>
   );
 };
@@ -23,17 +23,18 @@ const SimpleLikeButton = (props: SimpleLikeButtonProps) => {
 const StyledSimpleLikeButton = styled.button`
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   font-size: 20px;
   background-color: transparent;
   border: none;
   padding: 0;
+  opacity: 0.87;
 `;
 
 const Icon = styled.span`
   display: flex;
   align-items: center;
-  margin-bottom: 3px;
+  margin-bottom: 7px;
 `;
 
 export default SimpleLikeButton;
